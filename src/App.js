@@ -1,11 +1,12 @@
-import './App.css';
+import "./App.scss";
+import { Card } from "./utils";
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      helper
+      {[...Array(3).keys()].map((e) => {
+        return <Card {...e}/>;
+      })}
     </div>
   );
 }
-
-export default App;
