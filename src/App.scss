@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;500&display=swap");
+
+$base-font: "JetBrains Mono", monospace;
+
+* {
+  font-family: $base-font;
+}
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  background-color: #dbdbdb;
+  overflow: hidden;
+  height: 100vh;
+  .logo{
+    background-color: #000;
+    height: 50px;
+    width: 50px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    p{
+        color: #ffffff;
+        font-size: 35px;
+    }
+  }
+  .search-container {
+    width: 50%;
+    .search {
+      margin: 2rem 0;
+      height: 2.5rem;
+      background-color: #ffffff;
+      border: none;
+      border-radius: 2px;
+      padding: 0 10px;
+      width: 100%;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(3, calc(80% / 3));
+    gap: 2%;
+    place-content: center;
+    justify-content: center;
+    width: 80%;
+    // overflow: scroll;
+    overflow-x: hidden;
+    height: fit-content;
+    height: 50vh;
+
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+      box-shadow: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: rgb(109, 109, 109);
+      border-radius: 50px;
+    }
+  }
+  .pag-container {
+    display: flex;
+    flex-direction: row;
+    .number-container {
+      padding: 10px;
+      background-color: rgb(197, 197, 197);
+      border-radius: 3px;
+      margin: 0 10px;
+      p {
+        margin: 5px;
+      }
+    }
+  }
+}

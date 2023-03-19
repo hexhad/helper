@@ -1,0 +1,44 @@
+// Colors
+$black: rgb(0, 0, 0);
+$gray: rgb(172, 172, 172);
+
+p {
+  margin: 0;
+  padding: 0;
+}
+.black {
+  color: $black;
+}
+
+.gray {
+  color: $gray;
+}
+
+.fs-m {
+}
+.fs-l {
+}
+.card-container {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 3px;
+  .card-wrapper {
+    padding: 20px;
+    // height: 100px;
+    max-height: fit-content;
+    .top-row {
+    }
+    .middle-row {
+      p {
+        white-space: nowrap;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+    .bottom-row {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}
