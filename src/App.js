@@ -1,43 +1,55 @@
+import React, { useState, useEffect, useMemo } from "react";
 import "./App.scss";
 import { Card } from "./utils";
-import { useEffect } from "react";
+import { db } from "./firebase";
+import { collection, getDocs } from "firebase/firestore";
 
 export default function App() {
-  // function handleOrientation(event) {
-  //   const absolute = event.absolute;
-  //   const alpha = event.alpha;
-  //   const beta = event.beta;
-  //   const gamma = event.gamma;
+  const collectionData = "js";
+  const [fireData, setFireData] = useState([]);
+  const [filteredFire, setFilteredFire] = useState([]);
 
-  //   // Do stuff with the new orientation data
-  //   console.log("here");
-  //   console.log(beta);
-  // }
-  // useEffect(() => {
-  //   const unsubs = window.addEventListener("deviceorientation", handleOrientation, true);
-  // }, []);
+  const oneCollection = collection(db, collectionData);
+
+  useEffect(() => {
+    getHelp();
+  }, []);
+
+  async function getHelp() {
+    const data = await getDocs(oneCollection);
+    const structed = data.docs.map((d) => ({ ...d.data(), id: d.id }));
+    setFireData(structed);
+    setFilteredFire(structed);
+  }
+
+  const renderCardSet = useMemo(() => {
+    return filteredFire.map((e) => {
+      return <Card {...e} key={e} />;
+    });
+  }, [filteredFire]);
+
+  const filterContent = (e) => {
+    setFilteredFire(
+      fireData.filter((itm) =>itm.anchor.toLowerCase().includes(e.target.value.toLowerCase()))
+    );
+  };
 
   return (
     <div className="App">
       <div className="logo">
-    <p>h</p>
+        <p>h</p>
       </div>
       <div className="search-container">
-        <input type={"text"} placeholder="Search ... " className="search" />
+        <input
+          type={"text"}
+          placeholder="Search ... "
+          className="search"
+          onChange={filterContent}
+        />
       </div>
-      <div className="container">
-        {[...Array(9).keys()].map((e) => {
-          return <Card {...e} key={e} />;
-        })}
-      </div>
+      <div className="container">{renderCardSet}</div>
       <div className="pag-container">
-        {[...Array(3).keys()].map((e) => {
-          return (
-            <div className="number-container">
-              <p>{e}</p>
-            </div>
-          );
-        })}
+        <input type={"button"} value={1} className="number-container" key={1} />
       </div>
     </div>
   );
