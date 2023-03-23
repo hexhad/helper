@@ -2,6 +2,16 @@
 $black: rgb(0, 0, 0);
 $gray: rgb(172, 172, 172);
 
+button{
+  border: none;
+  transition: background-color 0.5s ease;
+  &:hover{
+    background-color: rgb(202, 202, 202);
+  }
+  &:active{
+    background-color: rgb(68, 77, 90);
+  }
+}
 p {
   margin: 0;
   padding: 0;
@@ -24,9 +34,9 @@ p {
   border-radius: 3px;
   .card-wrapper {
     padding: 20px;
-    // height: 100px;
     max-height: fit-content;
     .top-row {
+      text-align: left;
     }
     .middle-row {
       p {
@@ -39,6 +49,7 @@ p {
     .bottom-row {
       display: flex;
       justify-content: flex-end;
+      // text-align: right;
     }
   }
 }

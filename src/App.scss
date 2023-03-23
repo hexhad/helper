@@ -2,8 +2,35 @@
 
 $base-font: "JetBrains Mono", monospace;
 
+.code-env {
+  background-color: #000;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.code-desc{
+  padding: 10px;
+  background-color: #c9c9c9;
+  z-index: 1;
+  p{
+    
+  }
+}
 * {
   font-family: $base-font;
+}
+
+.close-btn-wrapper {
+  margin: 10px 0;
+  display: flex;
+ justify-content: flex-end;
+  .close-btn {
+    padding: 10px;
+    background-color: firebrick;
+    color: #ffffff;
+    border-radius: 4px;
+  }
 }
 .App {
   display: flex;
@@ -15,7 +42,7 @@ $base-font: "JetBrains Mono", monospace;
   background-color: #dbdbdb;
   overflow: hidden;
   height: 100vh;
-  .logo{
+  .logo {
     background-color: #000;
     height: 50px;
     width: 50px;
@@ -23,9 +50,9 @@ $base-font: "JetBrains Mono", monospace;
     display: flex;
     align-items: center;
     justify-content: center;
-    p{
-        color: #ffffff;
-        font-size: 35px;
+    p {
+      color: #ffffff;
+      font-size: 35px;
     }
   }
   .search-container {
