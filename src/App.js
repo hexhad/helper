@@ -28,7 +28,6 @@ export default function App() {
   const collectionData = "js";
   const [fireData, setFireData] = useState([]);
   const [filteredFire, setFilteredFire] = useState([]);
-  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const oneCollection = collection(db, collectionData);
   let subtitle;
@@ -48,9 +47,10 @@ export default function App() {
     setFilteredFire(structed);
   }
 
+
   const renderCardSet = useMemo(() => {
     return filteredFire.map((e) => {
-      return <Card {...e} key={e} />;
+      return <Card {...e} key={e.id} />;
     });
   }, [filteredFire]);
 
@@ -58,9 +58,7 @@ export default function App() {
     if (!!!modalState?.state) return null;
     return (
       <Modal
-        isOpen={modalIsOpen}
-        onAfterOpen={afterOpenModal}
-        onRequestClose={closeModal}
+        isOpen={!!modalState?.state}
         style={customStyles}
         contentLabel="Example Modal"
       >
@@ -94,19 +92,6 @@ export default function App() {
       )
     );
   };
-
-  function openModal() {
-    setModalIsOpen(true);
-  }
-
-  function afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    subtitle.style.color = "#f00";
-  }
-
-  function closeModal() {
-    setModalIsOpen(false);
-  }
 
   return (
     <div className="App">
