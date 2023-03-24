@@ -6,6 +6,7 @@ import { collection, getDocs } from "firebase/firestore";
 import Modal from "react-modal";
 import { useSelector, useDispatch } from "react-redux";
 import { updateModalData } from "./redux/ducks";
+import { AiOutlineCloseCircle } from 'react-icons/ai';
 
 const customStyles = {
   content: {
@@ -15,6 +16,7 @@ const customStyles = {
     bottom: "auto",
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
+    maxWidth: "70vw",
   },
 };
 
@@ -30,7 +32,6 @@ export default function App() {
   const [filteredFire, setFilteredFire] = useState([]);
 
   const oneCollection = collection(db, collectionData);
-  let subtitle;
 
   useEffect(() => {
     getHelp();
@@ -65,7 +66,7 @@ export default function App() {
         <div>
           <div className="close-btn-wrapper">
             <button className="close-btn" onClick={clearState}>
-              close
+            <AiOutlineCloseCircle/>
             </button>
           </div>
           <div className="main-content">
@@ -109,7 +110,9 @@ export default function App() {
       </div>
       <div className="container">{renderCardSet}</div>
       <div className="pag-container">
-        <input type={"button"} value={1} className="number-container" key={1} />
+      <button className="number-container" onClick={clearState}>
+          1
+            </button>
       </div>
     </div>
   );

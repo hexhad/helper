@@ -2,7 +2,7 @@
 
 http://hexhad.github.io/helper
 
-### Create .env file and add these
+### create .env file and add these
 ```
 REACT_APP_API_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 REACT_APP_AUTH_DOMAIN=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
