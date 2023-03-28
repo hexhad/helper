@@ -2,13 +2,13 @@
 $black: rgb(0, 0, 0);
 $gray: rgb(172, 172, 172);
 
-button{
+button {
   border: none;
   transition: background-color 0.5s ease;
-  &:hover{
+  &:hover {
     background-color: rgb(202, 202, 202);
   }
-  &:active{
+  &:active {
     background-color: rgb(68, 77, 90);
   }
 }

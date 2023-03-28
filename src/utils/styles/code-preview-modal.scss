@@ -1,0 +1,64 @@
+.code-env {
+  background-color: #000;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.code-desc {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #c9c9c9;
+  // p {
+  // }
+}
+.code-last-row {
+  display: flex;
+  flex-direction: row;
+  button {
+    margin-left: auto;
+    background-color: darkslategrey;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 3px;
+  }
+}
+
+button {
+  background-color: #fff;
+  border: none;
+  transition: background-color 0.5s ease;
+  &:hover {
+    background-color: rgb(202, 202, 202);
+  }
+  &:active {
+    background-color: rgb(68, 77, 90);
+  }
+}
+
+.close-btn-wrapper {
+  margin: 10px 0;
+  display: flex;
+  justify-content: flex-end;
+  transition: background-color 0.5s ease;
+  .close-btn {
+    display: flex;
+    padding: 10px;
+    background-color: firebrick;
+    color: #ffffff;
+    border-radius: 4px;
+    svg {
+      height: 1.2rem;
+      width: 1.2rem;
+    }
+
+    &:hover {
+      background-color: rgb(202, 202, 202);
+    }
+    &:active {
+      background-color: #ffffff;
+      color: firebrick;
+      border-radius: 4px;
+    }
+  }
+}
